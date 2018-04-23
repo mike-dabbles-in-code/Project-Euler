@@ -1,0 +1,26 @@
+By considering the terms in the Fibonacci sequence whose values do not exceed four million, find the sum of the even-valued terms.
+
+var fib = [1,1];
+var fib2 = [];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+function fibonacci(n){
+
+	for (var i = 2; i <= n-1; i++){	
+		// fibonacci wird gebaut
+		fib[i] = fib[i-1] + fib[i-2];
+		if(fib[i] > 4000000){
+			alert("sequence exceeds 4 million");
+		}
+		// gerade fib nummern 
+		if(fib[i] %2 === 0){
+			// gerade fibs in array schieben
+			fib2.push(fib[i]);
+		}
+	}
+	// gerade fib nummern summieren
+	var sum = fib2.reduce(reducer);
+	console.log(sum);
+	
+}
+fibonacci(n);
